@@ -1,0 +1,15 @@
+.greybutton {
+    width: auto;
+    background: #867F7E;
+    border: 1px solid #444;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+    padding: 10px 20px 11px;
+}
+
+button:hover {
+    background: #a3271b
+}
