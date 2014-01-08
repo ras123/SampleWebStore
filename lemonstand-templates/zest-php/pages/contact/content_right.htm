@@ -1,0 +1,2 @@
+<h3>Opening hours</h3>
+<p class="data-list">Monday: 9 AM - 11 PM<br /> Tuesday: 9 AM - 11 PM<br /> Wednesday: 9 AM - 11 PM<br /> Thursday: 9 AM - 12 AM<br /> Friday: 9 AM - 12 AM<br /> Saturday: 9 AM - 7 PM<br /> Sunday: 9 AM - 7 PM</p>

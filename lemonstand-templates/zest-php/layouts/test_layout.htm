@@ -1,0 +1,14 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title><?= h($this->page->title) ?></title>
+  <? $this->render_head() ?>
+</head>
+<body <? if (isset($body_class)): ?>class="<?= $body_class ?>"<? endif ?>>
+  <p>This is a header</p>
+  <? $this->render_page() ?>
+  <? $this->render_block('sidebar') ?>
+  <p>This is a footer</p>
+</body>
+</html>

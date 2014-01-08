@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="content twelve columns">
+    <div class="row">
+      <div class="five columns">
+        <h3>Login</h3>
+        <?= open_form(array('data-ajax-handler'=>'shop:on_login')) ?>
+          <div class="row">
+            <div class="twelve columns">
+              <label for="login_email">E-mail Address</label>
+              <input type="text" id="login_email" name="email" value="<?= h(post('email')) ?>"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="twelve columns">
+              <label for="login_password">Password</label>
+              <input type="password" name="password" id="login_password" />
+            </div>
+          </div>
+          
+          <input type="submit" class="button" value="Login"/>
+          <a class="right forgotpass" href="<?= root_url('/password-restore') ?>">Forgot your password?</a>
+          
+          <input type="hidden" name="redirect" value="<?= root_url('/checkout') ?>"/>
+        <?= close_form() ?>
+      </div>
+        
+      <div class="six columns">
+        <h3>Continue checkout as guest</h3>
+        <p>Continue checkout as guest. No sign up required.</p>
+        <a class="button" href="<?= root_url('checkout') ?>">Continue as guest</a>
+      </div>
+    </div>
+  </div>
+</div>

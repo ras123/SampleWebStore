@@ -1,0 +1,6 @@
+<? if (!$post): ?>
+	<p>We are sorry, the specified post was not found.</p>
+<? else: ?>
+	<h3><?= h($post->title) ?></h3>
+	<?= $post->content ?>
+<? endif ?>

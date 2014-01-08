@@ -1,0 +1,9 @@
+<ul>
+	<? foreach ($posts as $post): ?>
+		<li>
+			<a href="/rasblog-post/<?= $post->id ?>">
+			<?= h($post->title) ?>
+			</a>
+		</li>
+	<? endforeach ?>
+</ul>
