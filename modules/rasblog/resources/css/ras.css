@@ -11,5 +11,9 @@
 }
 
 button:hover {
-    background: #a3271b
+    background: #a3271b;
+}
+
+#blogtitle {
+    color: #a3271b;
 }

@@ -23,10 +23,18 @@ class RasBlog_Actions extends Cms_ActionScope
         }
 
         $obj = new RasBlog_Post();
-        $this->data['post'] = $obj->find($post_id);
+        $blog = $obj->find($post_id);
 
-        if (post('add_comment')) {
-            $this->on_addComment();
+        if ($blog) {
+            $this->data['post'] = $blog;
+
+            // Retrieve blog comments
+            $comments = $blog->rasblog_comments;
+            foreach ($comments as $comment) {
+                //throw new Phpr_ApplicationException($comment);
+            }
+
+            $this->data['comments'] = $comments;
         }
     }
 
@@ -75,14 +83,15 @@ class RasBlog_Actions extends Cms_ActionScope
         }
     }
 
-    public function on_addBlogPost()
-    {
-        $this->data['postSuccessful'] = true;
-    }
-
     public function on_addComment()
     {
+        if (!post('comment') || !post('post_id')) {
+            return;
+        }
 
-        throw new Phpr_ApplicationException('Error adding the comment to the database!');
+        $obj = new RasBlog_Comment();
+        $obj->blog_id = post('post_id');
+        $obj->content = post('comment');
+        $obj->save();
     }
 }

@@ -1,2 +1,4 @@
 #1 Module initialization
 #2 Created blog posts database table
+#3 Created blog comments database table
+#4 Fix to the comments database table
