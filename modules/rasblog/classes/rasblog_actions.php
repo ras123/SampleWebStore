@@ -29,12 +29,7 @@ class RasBlog_Actions extends Cms_ActionScope
             $this->data['post'] = $blog;
 
             // Retrieve blog comments
-            $comments = $blog->rasblog_comments;
-            foreach ($comments as $comment) {
-                //throw new Phpr_ApplicationException($comment);
-            }
-
-            $this->data['comments'] = $comments;
+            $this->data['comments'] = $blog->comments;
         }
     }
 
@@ -93,5 +88,7 @@ class RasBlog_Actions extends Cms_ActionScope
         $obj->blog_id = post('post_id');
         $obj->content = post('comment');
         $obj->save();
+
+        //throw new Phpr_ApplicationException("Received: " . post('comment'));
     }
 }
