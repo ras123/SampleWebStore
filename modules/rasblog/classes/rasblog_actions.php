@@ -7,12 +7,18 @@
  */
 class RasBlog_Actions extends Cms_ActionScope
 {
+    /**
+     * Retrieves all blog posts.
+     */
     public function posts()
     {
         $obj = new RasBlog_Post();
         $this->data['posts'] = $obj->order('created_at desc')->find_all();
     }
 
+    /**
+     * Retrieves a single blog post with id specified in the URL.
+     */
     public function post()
     {
         $this->data['post'] = null;
@@ -33,6 +39,9 @@ class RasBlog_Actions extends Cms_ActionScope
         }
     }
 
+    /**
+     * Stores a new blog post.
+     */
     public function postBlog()
     {
         $this->data['postSuccessful'] = false;
@@ -73,11 +82,15 @@ class RasBlog_Actions extends Cms_ActionScope
                 }
                 $obj->save();
 
+                Phpr::$session->flash['success'] = 'Blog post added successfully!';
                 $this->data['postSuccessful'] = true;
             }
         }
     }
 
+    /**
+     * Stores a blog comment.
+     */
     public function on_addComment()
     {
         if (!post('comment') || !post('post_id')) {
@@ -88,7 +101,5 @@ class RasBlog_Actions extends Cms_ActionScope
         $obj->blog_id = post('post_id');
         $obj->content = post('comment');
         $obj->save();
-
-        //throw new Phpr_ApplicationException("Received: " . post('comment'));
     }
 }

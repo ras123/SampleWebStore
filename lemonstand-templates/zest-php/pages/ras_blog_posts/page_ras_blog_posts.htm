@@ -1,20 +1,20 @@
 <div class="row">
-    <div class="content twelve columns">
-        <div class="row">
-            <div class="eight columns">
-                <button class="greybutton" type="button" onclick="window.location.href='/ras-blog-posts/new-post';">New Blog</button><br/><br/>
+<div class="content twelve columns">
+<div class="row">
+<div class="eight columns">
+    <button class="greybutton" type="button" onclick="window.location.href='/ras-blog-posts/new-post';">New Blog</button><br/><br/>
 
-                <ul>
-                    <? foreach ($posts as $post): ?>
-                    <li>
-                        <a href="/ras-blog-posts/post/<?= $post->id ?>">
-                            <?= h($post->title) ?>
-                        </a>
-                    </li>
-                    <? endforeach ?>
-                </ul>
-
-            </div>
-        </div>
-    </div>
+    <!-- Display a list of blog post titles -->
+    <ul>
+        <? foreach ($posts as $post): ?>
+            <li>
+                <a href="/ras-blog-posts/post/<?= $post->id ?>">
+                    <?= h($post->title) ?>
+                </a>
+            </li>
+        <? endforeach ?>
+    </ul>
+</div>
+</div>
+</div>
 </div>

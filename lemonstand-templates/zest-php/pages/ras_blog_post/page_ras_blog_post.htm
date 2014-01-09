@@ -3,40 +3,43 @@
         <div class="row">
             <div class="ten columns">
                 <? if (!$post): ?>
-                <p>We are sorry, the specified post was not found.</p>
+                    <p>We are sorry, the specified post was not found.</p>
             </div>
         </div>
     </div>
 </div>
                 <? else: ?>
-<h2 id="blogtitle"><?= h($post->title) ?></h2>
-<h3><?= h($post->description) ?></h3>
-<?= $post->content ?>
-</div>
-</div>
+                    <!-- Display blog title, description, and content -->
+                    <h2 id="blogtitle"><?= h($post->title) ?></h2>
+                    <h3><?= h($post->description) ?></h3>
+                    <?= $post->content ?>
+                </div>
+            </div>
 
-<div class="row">
-    <div class="ten columns">
-        <br/>
-        <?= open_form(array('id'=>'form_comment')) ?>
-        <textarea id="comment" name="comment" placeholder="Write a comment.."></textarea>
-        <input type="hidden" name="post_id" value="<?= $post->id ?>"/>
-        <button class="greybutton" type="button"
-                onclick="addComment();">Submit</button>
-        <? close_form() ?>
+            <!-- Display comment submit area -->
+            <div class="row">
+                <div class="ten columns">
+                    <br/>
+                    <?= open_form(array('id'=>'form_comment')) ?>
+                    <textarea id="comment" name="comment" placeholder="Write a comment.."></textarea>
+                    <input type="hidden" name="post_id" value="<?= $post->id ?>"/>
+                    <button class="greybutton" type="button"
+                            onclick="addComment();">Submit</button>
+                    <? close_form() ?>
+                </div>
+            </div>
+
+            <!-- Display a list of blog comments -->
+            <br/>
+            <h3>Comments</h3>
+            <ul id="list_of_comments">
+                <? if (count($comments) > 0) {
+                    foreach ($comments as $comment) {
+                        echo "<li>{$comment->content}</li>" . "\n";
+                    }
+                } ?>
+            </ul>
+
+        </div>
     </div>
-</div>
-
-<br/>
-<h3>Comments</h3>
-<ul id="list_of_comments">
-    <? if (count($comments) > 0) {
-        foreach ($comments as $comment) {
-            echo "<li>{$comment->content}</li>" . "\n";
-        }
-    } ?>
-</ul>
-
-</div>
-</div>
 <? endif; ?>

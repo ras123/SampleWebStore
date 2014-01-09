@@ -1,17 +1,9 @@
-<!--<?= $this->js_combine(array('jquery', 'ls_core_jquery')) ?>-->
-
-<script>
-/*function postBlog() {
-	console.log("In postBlog");
-	$("#blog_post_form").sendRequest('rasblog:on_addBlogPost');
-}*/
-</script>
-
 <div class="row">
 <div class="content twelve columns">
 <div class="row">
 <div class="six columns">
 <?= open_form() ?>
+<!-- Title field -->
 <div class="row">
 	<div class="twelve columns">
 		<label>Title</label>
@@ -20,6 +12,7 @@
 	</div>
 </div>
 
+<!-- Description field -->
 <div class="row">
 	<div class="twelve columns">
 		<label>Description</label>
@@ -27,6 +20,7 @@
 	</div>
 </div>
 
+<!-- Content field -->
 <div class="row">
 	<div class="twelve columns">
 		<textarea rows="10" cols="50" name="content" value="<? if (!$postSuccessful && isset($content)) echo $content; ?>"></textarea>
@@ -34,12 +28,10 @@
 		<input class="button" type="submit" value="Post" name="add_new_post"/>
 	</div>
 </div>
-	<!--<input type="button" value="Post" onclick="postBlog();"/><br/>--> <!--"$(this).getForm().sendRequest('rasblog:on_addBlogPost')"-->
 <? close_form() ?>
 
-<!--<p id="notification"></p>-->
 <? if (isset($postSuccessful) && $postSuccessful): ?>
-	<br/><p><span style="color:green">Blog post added successfully!</span></p>
+	<br/><?= flash_message() ?>
 <? endif; ?>
 
 </div>

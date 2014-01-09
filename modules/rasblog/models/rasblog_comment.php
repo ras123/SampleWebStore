@@ -8,9 +8,4 @@
 class RasBlog_Comment extends Db_ActiveRecord
 {
     public $table_name = 'rasblog_comments';
-
-    /*public function define_columns($context = null)
-    {
-        $this->define_column('created_at', 'Added')->order('desc');
-    }*/
 }
