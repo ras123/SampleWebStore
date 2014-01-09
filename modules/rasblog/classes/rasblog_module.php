@@ -18,4 +18,11 @@ class RasBlog_Module extends Core_ModuleBase
             "LemonStand blogging feature",
             "Ras");
     }
+
+    public function listTabs($tabCollection)
+    {
+        $menu_item = $tabCollection->tab('rasblog', "Ras's Blog", 'posts', 1000);
+        $menu_item->addSecondLevel('posts', 'Posts', 'posts');
+        $menu_item->addSecondLevel('comments', 'Comments', 'comments');
+    }
 }
