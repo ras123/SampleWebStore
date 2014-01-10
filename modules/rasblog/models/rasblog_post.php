@@ -19,12 +19,31 @@ class RasBlog_Post extends Db_ActiveRecord
                                   'delete'=>true)
     );
 
+    /**
+     * Columns to be used when listing blog posts.
+     * @param null $context
+     */
     public function define_columns($context = null)
     {
         $this->define_column('id', '#');
-        $this->define_column('title', 'Title');
+        $this->define_column('title', 'Title')->validation()->fn('trim')->
+            required('Please specify title for the blog post')->
+            minLength(4, 'The post title should be at least 4 characters long');
         $this->define_column('description', 'Description');
+        $this->define_column('content', 'Content')->invisible()->validation()->
+            required('Please enter content of the blog post');
 
-        $this->define_multi_relation_column('content', 'comments', 'Comments', '@content');
+        $this->define_multi_relation_column('comments', 'comments', 'Comments', '@content');
+    }
+
+    /**
+     * Columns to be used for rendering a blog post form.
+     * @param null $context
+     */
+    public function define_form_fields($context = null)
+    {
+        $this->add_form_field('title');
+        $this->add_form_field('description');
+        $this->add_form_field('content');
     }
 } 
