@@ -13,7 +13,9 @@ class RasBlog_Actions extends Cms_ActionScope
     public function posts()
     {
         $obj = new RasBlog_Post();
-        $this->data['posts'] = $obj->order('created_at desc')->find_all();
+
+        $this->data['blog_url'] = 'ras-blog-posts/post/';
+        $this->data['posts'] = $obj->order('created_at desc');
     }
 
     /**

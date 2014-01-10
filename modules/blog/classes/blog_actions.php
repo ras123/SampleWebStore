@@ -7,8 +7,9 @@
 			$posts = Blog_Post::create();
 			$posts->where('is_published is not null and is_published=1');
 			$posts->order('blog_posts.published_date desc');
-			
-			$this->data['posts'] = $posts;
+
+            $this->data['blog_url'] = 'blog/post/';
+            $this->data['posts'] = $posts;
 		}
 		
 		public function category()

@@ -1,5 +1,7 @@
 <? foreach ($posts as $post): ?>
-  <? $details_url = root_url('blog/post/'.$post->url_title) ?>
+  <? $blog_id = $post->url_title;
+  if (!isset($post->url_title)) $blog_id = $post->id;
+  $details_url = root_url($blog_url . $blog_id); ?>
   <article>
     <h3><a href="<?= $details_url ?>"><?= h($post->title) ?></a></h3>
     <p><?= h($post->description) ?></p>
