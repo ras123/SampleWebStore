@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="content twelve columns">
+        <div class="row">
+            <div class="product-list twelve columns">
+                <? if (isset($products) && $products) {
+                    echo '<div class="row">';
+                    $this->render_partial('shop:product_list', array(
+                    'products'=>$products,
+                    'paginate'=>true,
+                    'records_per_page'=>4,
+                    'pagination_base_url'=>root_url('ras-products'),
+                    'page_index'=>$this->request_param(-1)
+                    ));
+                    echo '</div>';
+                } else {
+                    echo '<p>Sorry, no products available.</p>';
+                } ?>
+            </div>
+        </div>
+    </div>
+</div>

@@ -93,15 +93,13 @@
 		public function product()
 		{
 			$this->data['product_unavailable'] = false;
+            $this->data['product'] = null;
 
 			$product_url_name = $this->request_param(0);
 			if (!strlen($product_url_name))
 			{
-				$this->data['product'] = null;
 				return;
 			}
-
-			$this->data['product'] = null;
 			
 			$product_id = post('product_id');
 			$specific_product = false;

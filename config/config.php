@@ -126,4 +126,5 @@
 	$CONFIG['UPDATE_CENTER'] = 'v1.lemonstand.com/lemonstand_update_gateway';
 	$CONFIG['LS_EULA_GATEWAY'] = 'https://v1.lemonstand.com/lemonstand_eula/';
 
+	$CONFIG['DISABLE_HTTP_SUBREQUESTS'] = true;
 ?>
