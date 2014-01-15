@@ -1,5 +1,3 @@
-<?= open_form(array('id'=>'products_on_sale_form'));
-    flash_message(); ?>
 <?
     $pagination = null;
     if (isset($paginate) && $paginate) {
@@ -14,6 +12,7 @@ $product_collection = $products->collection();
 
 <ul class="clearfix">
     <? foreach ($product_collection as $product): ?>
+    <?= open_form() ?>
     <? $is_on_sale = $product->om('is_on_sale') ?>
     <? $page_url = $product->page_url('/product') ?>
     <?
@@ -24,14 +23,6 @@ $product_collection = $products->collection();
     <li class="three columns mobile-two <?= $is_on_sale ? 'sale' : null ?>">
         <div class="hover-description-container">
             <a href="<?= $page_url ?>"><img src="<?= $image ?>" title="<?= h($product->name) ?>"/></a>
-            <div class="hover-description text-center">
-                <input onclick="return $(this).getForm().sendRequest(
-                    'shop:on_addToCart',
-                    {
-                        extraFields: {'product_id': <?= $product->id ?>},
-                        update: {'mini_cart': 'shop:mini_cart'}
-                    })" type="button" class="button" value="Buy Now"/>
-            </div>
         </div>
         <div class="text-center">
             <h3><a href="<?= $page_url ?>"><?= h($product->name) ?></a></h3>
@@ -44,7 +35,18 @@ $product_collection = $products->collection();
                 </a>
             </span>
         </div>
+        <div class="row">
+        <div class="five columns">
+            <input type="text" value="1" name="product_cart_quantity"/>
+        </div>
+        <a class="button" href="#"
+           data-ajax-handler="shop:on_addToCart"
+           data-ajax-update="mini-cart=shop:mini_cart"
+           data-ajax-extra-fields="product_id='<?= $product->id ?>'">Buy Now</a>
+        </div>
+
     </li>
+    <?= close_form() ?>
     <? endforeach ?>
     <? if (!$product_collection->count && isset($empty_text)): ?>
     <li class="empty"><?= h($empty_text) ?></li>
@@ -52,4 +54,3 @@ $product_collection = $products->collection();
 </ul>
 
 <? if ($pagination): ?><? $this->render_partial('pagination', array('pagination'=>$pagination, 'base_url'=>$pagination_base_url)) ?><? endif ?>
-<?= close_form() ?>
