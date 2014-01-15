@@ -29,7 +29,7 @@ button:hover {
     bottom: 0;
     height: 100%;
     width: 100%;
-    background: rgba(255, 255, 255, 0.90);
+    background: rgba(255, 255, 255, 0.85);
     color: #000;
 
     visibility: hidden;
@@ -55,3 +55,22 @@ button:hover {
     color: #6c6c6c;
     font: italic 14px;
 }
+
+.rasproduct-list ul {margin-bottom: 0;}
+.rasproduct-list li {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.rasproduct-list li .item {margin-bottom: 70px; position: relative;}
+.rasproduct-list .short-description {float: left;}
+.rasproduct-list li:last-child {
+    float: left !important;
+}
+
+.rasproduct-list h3 {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0px;
+}
+

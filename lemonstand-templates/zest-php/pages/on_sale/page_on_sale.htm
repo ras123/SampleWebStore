@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="content twelve columns">
+        <div class="row">
+            <div class="twelve columns rasproduct-list">
+                <? if (isset($products_on_sale) && $products_on_sale) {
+                    echo '<div class="row">';
+                $this->render_partial('rasshop:products_on_sale', array(
+                'products'=>$products_on_sale,
+                'paginate'=>true,
+                'records_per_page'=>4,
+                'pagination_base_url'=>root_url('on-sale'),
+                'page_index'=>$this->request_param(-1)
+                ));
+                echo '</div>';
+            } else {
+            echo '<p>Sorry, no products available.</p>';
+            } ?>
+        </div>
+    </div>
+</div>
+</div>
